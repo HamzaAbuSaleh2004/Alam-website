@@ -26,15 +26,16 @@ export function Hero() {
   return (
     <section className="relative flex min-h-[100svh] flex-col items-center justify-center overflow-hidden px-6 pb-24 pt-32 text-center">
       <Aurora />
-      <div className="grid-dots pointer-events-none absolute inset-0 -z-10" />
+      <div className="grid-dots pointer-events-none absolute inset-0 -z-10 opacity-70" />
 
-      {/* HERO CENTREPIECE — the real animated brand logo (intro → settle) */}
+      {/* HERO CENTREPIECE — Ambient Logo Glow */}
       <motion.div
         initial={reduce ? { opacity: 1 } : { opacity: 0, y: 12, scale: 0.98 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
         transition={{ duration: 0.7, ease: "easeOut" }}
-        className="mb-10 flex w-full justify-center"
+        className="relative mb-10 flex w-full justify-center"
       >
+        <div className="absolute -inset-4 rounded-full bg-brand-500/10 blur-2xl dark:bg-brand-400/15 pointer-events-none" />
         <HeroVideo />
       </motion.div>
 
@@ -46,7 +47,7 @@ export function Hero() {
       >
         <motion.span
           variants={item}
-          className="inline-flex items-center gap-2 rounded-full border border-border bg-[color-mix(in_srgb,var(--surface)_70%,transparent)] px-4 py-1.5 font-mono text-[0.72rem] font-medium uppercase tracking-[0.16em] text-primary-strong backdrop-blur"
+          className="inline-flex items-center gap-2 rounded-full border border-border bg-[color-mix(in_srgb,var(--surface)_70%,transparent)] px-4 py-1.5 font-mono text-[0.72rem] font-medium uppercase tracking-[0.16em] text-primary-strong backdrop-blur shadow-xs"
         >
           <span className="relative flex h-1.5 w-1.5">
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75" />
@@ -57,14 +58,14 @@ export function Hero() {
 
         <motion.h1
           variants={item}
-          className="text-balance text-4xl font-semibold leading-[1.05] md:text-6xl"
+          className="text-balance text-4xl font-semibold leading-[1.08] tracking-tight md:text-6xl text-heading"
         >
           {t.hero.title}
         </motion.h1>
 
         <motion.p
           variants={item}
-          className="max-w-2xl text-lg leading-relaxed text-fg-muted md:text-xl"
+          className="max-w-2xl text-base leading-relaxed text-fg-muted md:text-lg"
         >
           {t.hero.lead}
         </motion.p>
@@ -81,11 +82,13 @@ export function Hero() {
 
         <motion.ul
           variants={item}
-          className="mt-4 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-sm text-fg-muted"
+          className="mt-4 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-fg-muted"
         >
           {chips.map((c) => (
-            <li key={c} className="inline-flex items-center gap-1.5">
-              <Check className="text-base text-accent-strong" />
+            <li key={c} className="inline-flex items-center gap-2 font-medium">
+              <span className="flex h-5 w-5 items-center justify-center rounded-full bg-emerald-100 text-xs text-emerald-600 dark:bg-emerald-950/50 dark:text-emerald-400">
+                <Check className="text-xs" />
+              </span>
               {c}
             </li>
           ))}
@@ -101,10 +104,10 @@ export function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.4 }}
-          className="absolute bottom-10 left-1/2 -translate-x-1/2 font-mono text-[0.65rem] uppercase tracking-[0.2em] text-fg-muted"
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 font-mono text-[0.65rem] uppercase tracking-[0.2em] text-fg-muted"
         >
           <motion.span
-            animate={{ y: [0, 6, 0] }}
+            animate={{ y: [0, 5, 0] }}
             transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
             className="inline-block"
           >
