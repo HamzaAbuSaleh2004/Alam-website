@@ -1,0 +1,10 @@
+{
+  // Cloudflare Workers config for hosting the static export as edge-served
+  // static assets (no server, no cold start). Deployed with `npx wrangler deploy`.
+  "name": "al-alam",
+  "compatibility_date": "2025-03-01",
+  "assets": {
+    "directory": "./out",
+    "not_found_handling": "404-page"
+  }
+}

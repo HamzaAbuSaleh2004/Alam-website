@@ -3,6 +3,8 @@ import { SITE_URL } from "@/lib/site";
 
 // Explicitly welcome general and AI crawlers so the company is discoverable and
 // answerable by assistants like ChatGPT, Perplexity, Gemini and Claude.
+export const dynamic = "force-static";
+
 const aiBots = [
   "GPTBot",
   "OAI-SearchBot",
