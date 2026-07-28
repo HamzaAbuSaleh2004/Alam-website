@@ -74,7 +74,7 @@ export function Hero() {
             {t.hero.primary}
             <ArrowRight className="text-base rtl:-scale-x-100" />
           </MagneticButton>
-          <MagneticButton href="/products" variant="secondary">
+          <MagneticButton href="/about" variant="secondary">
             {t.hero.secondary}
           </MagneticButton>
         </motion.div>

@@ -8,7 +8,6 @@ import { Clock, MapPin, Phone } from "@/components/ui/icons";
 
 const routes = [
   { href: "/about", key: "about" as const },
-  { href: "/products", key: "products" as const },
   { href: "/contact", key: "contact" as const },
 ];
 

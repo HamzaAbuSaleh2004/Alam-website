@@ -12,7 +12,6 @@ import { ArrowRight, Close, Globe, Menu, Moon, Sun } from "@/components/ui/icons
 const routes = [
   { href: "/", key: "home" as const },
   { href: "/about", key: "about" as const },
-  { href: "/products", key: "products" as const },
   { href: "/contact", key: "contact" as const },
 ];
 
