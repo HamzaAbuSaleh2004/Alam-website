@@ -1,0 +1,119 @@
+/* ============================================================
+   Aalam Drug Store — Design Tokens
+   مستودع العلم للأدوية
+   v1.0.0-draft · 2026-07-24
+   Single source of truth for both Website/ and System/ apps.
+   Core colors sampled from the logo; scales are derived defaults.
+   ============================================================ */
+
+:root {
+  /* ---- Color: Primary (Medical Cyan) ---- */
+  --color-primary-50:  #E6F4FB;
+  --color-primary-100: #CCE8F6;
+  --color-primary-200: #99D1ED;
+  --color-primary-300: #66BAE4;
+  --color-primary-400: #33A3DB;
+  --color-primary-500: #008DD2; /* brand primary */
+  --color-primary-600: #0071A8; /* accessible text/link on white */
+  --color-primary-700: #00557E;
+  --color-primary-800: #003954;
+  --color-primary-900: #001C2A;
+
+  /* ---- Color: Secondary (Vibrant Lime) ---- */
+  --color-secondary-50:  #F6FBE9;
+  --color-secondary-100: #EDF6D4;
+  --color-secondary-200: #DBEDA9;
+  --color-secondary-300: #C9E47E;
+  --color-secondary-400: #B7DB53;
+  --color-secondary-500: #A5D027; /* brand accent */
+  --color-secondary-600: #84A61F;
+  --color-secondary-700: #637D17; /* accessible green text on white */
+  --color-secondary-800: #42530F;
+  --color-secondary-900: #212A08;
+
+  /* ---- Color: Neutral (Charcoal scale) ---- */
+  --color-neutral-0:   #FFFFFF;
+  --color-neutral-50:  #F7FAFC;
+  --color-neutral-100: #EDF2F7;
+  --color-neutral-200: #E2E8F0;
+  --color-neutral-300: #CBD5E0;
+  --color-neutral-400: #A0AEC0;
+  --color-neutral-500: #718096;
+  --color-neutral-600: #4A5568;
+  --color-neutral-700: #2D3748; /* body text */
+  --color-neutral-800: #1A202C;
+  --color-neutral-900: #171923;
+
+  /* ---- Color: Semantic ---- */
+  --color-success: #84A61F;
+  --color-warning: #DD8800;
+  --color-error:   #D64545;
+  --color-info:    #0071A8;
+
+  /* ---- Semantic aliases (use these in components) ---- */
+  --color-bg:            var(--color-neutral-0);
+  --color-surface:       var(--color-neutral-50);
+  --color-border:        var(--color-neutral-200);
+  --color-text:          var(--color-neutral-700);
+  --color-text-muted:    var(--color-neutral-500);
+  --color-heading:       var(--color-neutral-800);
+  --color-link:          var(--color-primary-600);
+  --color-link-hover:    var(--color-primary-700);
+  --color-accent:        var(--color-secondary-500);
+  --color-on-primary:    #FFFFFF; /* verify contrast; prefer large/bold labels */
+  --color-on-accent:     var(--color-neutral-700); /* dark text on lime */
+
+  /* ---- Typography ---- */
+  --font-sans:   'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-arabic: 'IBM Plex Sans Arabic', 'IBM Plex Sans', system-ui, sans-serif;
+  --font-mono:   'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --weight-regular:  400;
+  --weight-medium:   500;
+  --weight-semibold: 600;
+  --weight-bold:     700;
+
+  --text-small:   0.875rem;
+  --text-body:    1rem;
+  --text-body-lg: 1.125rem;
+  --text-h4:      1.25rem;
+  --text-h3:      1.563rem;
+  --text-h2:      1.953rem;
+  --text-h1:      2.441rem;
+  --text-display: 3.052rem;
+
+  --leading-tight:  1.15;
+  --leading-snug:   1.3;
+  --leading-normal: 1.6;
+
+  /* ---- Spacing ---- */
+  --space-0:  0;
+  --space-1:  0.25rem;
+  --space-2:  0.5rem;
+  --space-3:  0.75rem;
+  --space-4:  1rem;
+  --space-5:  1.5rem;
+  --space-6:  2rem;
+  --space-8:  3rem;
+  --space-10: 4rem;
+  --space-12: 6rem;
+
+  /* ---- Radius ---- */
+  --radius-sm:   0.25rem;
+  --radius-md:   0.5rem;
+  --radius-lg:   0.75rem;
+  --radius-xl:   1rem;
+  --radius-full: 9999px;
+
+  /* ---- Elevation ---- */
+  --shadow-sm: 0 1px 2px rgba(45, 55, 72, 0.06);
+  --shadow-md: 0 4px 12px rgba(45, 55, 72, 0.10);
+  --shadow-lg: 0 12px 32px rgba(45, 55, 72, 0.14);
+}
+
+/* RTL / Arabic regions: switch the default font stack.
+   Pair with dir="rtl" lang="ar" on the element or <html>. */
+[lang="ar"],
+[dir="rtl"] {
+  font-family: var(--font-arabic);
+}

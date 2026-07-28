@@ -1,0 +1,262 @@
+@import "tailwindcss";
+
+/* Manual dark-mode toggle via [data-theme="dark"] (falls back to nothing if unset) */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+/* ============================================================
+   Aalam Drug Store — theme-aware semantic tokens
+   Brand: Medical Cyan #008DD2 · Vibrant Lime #A5D027
+   ============================================================ */
+:root {
+  color-scheme: light;
+  --bg: #ffffff;
+  --surface: #f7fafc;
+  --surface-2: #eef3f8;
+  --border: #e2e8f0;
+  --fg: #2d3748;
+  --fg-muted: #64748b;
+  --heading: #16202e;
+  --ring: #0071a8;
+
+  /* brand */
+  --primary: #008dd2;
+  --primary-strong: #0071a8; /* AA text/link on white */
+  --accent: #a5d027;
+  --accent-strong: #637d17; /* AA green text on white */
+  --accent-ink: #1c2410; /* dark text to sit on lime */
+
+  --glow-primary: 0, 141, 210;
+  --glow-accent: 165, 208, 39;
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #0a111d;
+  --surface: #101a2b;
+  --surface-2: #17233a;
+  --border: #243349;
+  --fg: #c6d2e1;
+  --fg-muted: #8394ac;
+  --heading: #eef5fc;
+  --ring: #4db6e6;
+
+  --primary: #24a4e2;
+  --primary-strong: #7cc9ec;
+  --accent: #bce15a;
+  --accent-strong: #bce15a;
+  --accent-ink: #0a111d;
+}
+
+@theme inline {
+  /* semantic (theme-aware) */
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-border: var(--border);
+  --color-fg: var(--fg);
+  --color-fg-muted: var(--fg-muted);
+  --color-heading: var(--heading);
+  --color-ring: var(--ring);
+  --color-primary: var(--primary);
+  --color-primary-strong: var(--primary-strong);
+  --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
+  --color-accent-ink: var(--accent-ink);
+
+  /* brand scale — primary (Medical Cyan) */
+  --color-brand-50: #e6f4fb;
+  --color-brand-100: #cce8f6;
+  --color-brand-200: #99d1ed;
+  --color-brand-300: #66bae4;
+  --color-brand-400: #33a3db;
+  --color-brand-500: #008dd2;
+  --color-brand-600: #0071a8;
+  --color-brand-700: #00557e;
+  --color-brand-800: #003954;
+  --color-brand-900: #001c2a;
+
+  /* brand scale — secondary (Vibrant Lime) */
+  --color-lime-50: #f6fbe9;
+  --color-lime-100: #edf6d4;
+  --color-lime-200: #dbeda9;
+  --color-lime-300: #c9e47e;
+  --color-lime-400: #b7db53;
+  --color-lime-500: #a5d027;
+  --color-lime-600: #84a61f;
+  --color-lime-700: #637d17;
+  --color-lime-800: #42530f;
+  --color-lime-900: #212a08;
+
+  /* fonts (vars set by next/font in layout) */
+  --font-sans: var(--font-plex-sans), system-ui, -apple-system, sans-serif;
+  --font-arabic: var(--font-plex-arabic), var(--font-plex-sans), system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, SFMono-Regular, monospace;
+
+  --radius-card: 1rem;
+}
+
+/* ============================================================
+   Base
+   ============================================================ */
+* {
+  border-color: var(--border);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+/* Arabic / RTL uses the matched Plex Arabic face */
+[lang="ar"] body,
+[dir="rtl"] body,
+[lang="ar"],
+[dir="rtl"] {
+  font-family: var(--font-arabic);
+}
+
+h1, h2, h3, h4 {
+  color: var(--heading);
+  text-wrap: balance;
+  letter-spacing: -0.02em;
+  line-height: 1.08;
+}
+
+::selection {
+  background: rgba(var(--glow-primary), 0.22);
+}
+
+/* Focus ring — visible, >=3:1 */
+:where(a, button, input, textarea, select, [tabindex]):focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ============================================================
+   Signature motifs & animations
+   (only transform / opacity / dash — compositor friendly)
+   ============================================================ */
+
+/* soft medical aurora blobs */
+@keyframes aurora-drift {
+  0%   { transform: translate3d(0, 0, 0) scale(1); }
+  33%  { transform: translate3d(6%, -4%, 0) scale(1.12); }
+  66%  { transform: translate3d(-5%, 5%, 0) scale(0.96); }
+  100% { transform: translate3d(0, 0, 0) scale(1); }
+}
+
+/* traveling EKG / heartbeat pulse */
+@keyframes pulse-dash {
+  from { stroke-dashoffset: 1000; }
+  to   { stroke-dashoffset: 0; }
+}
+
+/* self-drawing logo strokes */
+@keyframes draw-stroke {
+  from { stroke-dashoffset: var(--dash, 1000); }
+  to   { stroke-dashoffset: 0; }
+}
+
+/* partner logo marquee */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* shiny/gradient sweep on text */
+@keyframes text-shimmer {
+  from { background-position: 200% center; }
+  to   { background-position: -200% center; }
+}
+
+@keyframes float-soft {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-8px); }
+}
+
+.aurora-blob {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(64px);
+  opacity: 0.5;
+  will-change: transform;
+  animation: aurora-drift 18s ease-in-out infinite;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 38s linear infinite;
+  will-change: transform;
+}
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+[dir="rtl"] .marquee-track {
+  animation-direction: reverse;
+}
+
+.shiny-text {
+  background: linear-gradient(
+    100deg,
+    var(--heading) 0%,
+    var(--heading) 40%,
+    var(--primary) 50%,
+    var(--heading) 60%,
+    var(--heading) 100%
+  );
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: text-shimmer 6s linear infinite;
+}
+
+.hairline {
+  background-image: linear-gradient(
+    to right,
+    transparent,
+    var(--border) 12%,
+    var(--border) 88%,
+    transparent
+  );
+  height: 1px;
+}
+
+/* dotted clinical grid backdrop */
+.grid-dots {
+  background-image: radial-gradient(
+    circle at 1px 1px,
+    color-mix(in srgb, var(--fg) 14%, transparent) 1px,
+    transparent 0
+  );
+  background-size: 28px 28px;
+  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 40%, transparent 78%);
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 40%, transparent 78%);
+}
+
+/* traveling current along the EKG divider */
+@keyframes pulse-travel {
+  to { stroke-dashoffset: -88; }
+}
+
+/* ============================================================
+   Reduced motion
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, ::before, ::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
