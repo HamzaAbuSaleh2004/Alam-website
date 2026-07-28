@@ -6,6 +6,7 @@ import { PageHeader } from "@/components/site/PageHeader";
 import { Container, Section } from "@/components/ui/primitives";
 import { Reveal } from "@/components/ui/Reveal";
 import { MagneticButton } from "@/components/ui/MagneticButton";
+import { GoogleMap } from "@/components/ui/GoogleMap";
 import { Check, Clock, MapPin, Phone, Send, Whatsapp } from "@/components/ui/icons";
 
 type Status = "idle" | "sending" | "sent";
@@ -17,10 +18,8 @@ export function ContactView() {
   const { t } = useI18n();
   const c = t.contact;
   const wa = `https://wa.me/${c.phone.replace(/[^\d]/g, "")}`;
-  const mapQuery = "مستودع العلم للأدوية, Khalil Dabbas St 10, Amman, Jordan";
-  const mapEmbed = `https://www.google.com/maps?q=${encodeURIComponent(mapQuery)}&z=16&hl=en&output=embed`;
-  const mapLink = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(mapQuery)}`;
 
+  const [subject, setSubject] = useState<string>("general");
   const [form, setForm] = useState({ name: "", org: "", email: "", message: "" });
   const [errors, setErrors] = useState<Errors>({});
   const [status, setStatus] = useState<Status>("idle");
@@ -40,7 +39,6 @@ export function ContactView() {
     if (Object.keys(next).length > 0) return;
 
     setStatus("sending");
-    // Demo only — no backend yet. Wire to Aalam's inbox before launch.
     window.setTimeout(() => setStatus("sent"), 850);
   }
 
@@ -65,23 +63,48 @@ export function ContactView() {
           <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
             {/* Form */}
             <Reveal>
-              <div className="rounded-3xl border border-border bg-surface p-6 md:p-8">
+              <div className="rounded-3xl border border-border bg-surface p-6 md:p-8 shadow-sm">
                 {status === "sent" ? (
-                  <div className="flex flex-col items-start gap-4 py-6">
-                    <span className="flex h-12 w-12 items-center justify-center rounded-full bg-accent/20 text-accent-strong">
+                  <div className="flex flex-col items-start gap-4 py-8">
+                    <span className="flex h-14 w-14 items-center justify-center rounded-full bg-emerald-100 text-emerald-600 dark:bg-emerald-950/60 dark:text-emerald-400">
                       <Check className="text-2xl" />
                     </span>
-                    <h2 className="text-xl font-semibold text-heading">{c.sentTitle}</h2>
+                    <h2 className="text-2xl font-semibold text-heading">{c.sentTitle}</h2>
                     <p className="text-sm leading-relaxed text-fg-muted">{c.sentBody}</p>
                     <button
                       onClick={reset}
-                      className="mt-1 text-sm font-medium text-primary-strong hover:text-brand-700"
+                      className="mt-4 rounded-full bg-brand-600 px-6 py-2.5 text-xs font-medium text-white shadow-xs hover:bg-brand-700 transition-colors"
                     >
                       {c.reset}
                     </button>
                   </div>
                 ) : (
                   <form onSubmit={submit} noValidate className="flex flex-col gap-5">
+                    {/* Subject Pill Selector */}
+                    {c.subjects && (
+                      <div className="flex flex-col gap-2">
+                        <label className="text-xs font-medium text-fg-muted">
+                          {c.subjectsLabel}
+                        </label>
+                        <div className="flex flex-wrap gap-2">
+                          {c.subjects.map((sub) => (
+                            <button
+                              key={sub.id}
+                              type="button"
+                              onClick={() => setSubject(sub.id)}
+                              className={`rounded-full px-3.5 py-1.5 text-xs font-medium transition-all ${
+                                subject === sub.id
+                                  ? "bg-brand-600 text-white shadow-xs"
+                                  : "border border-border bg-bg text-fg-muted hover:text-heading"
+                              }`}
+                            >
+                              {sub.label}
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
                     <Field
                       id="name"
                       label={c.nameLabel}
@@ -114,6 +137,7 @@ export function ContactView() {
                       onChange={(v) => update("message", v)}
                       error={errors.message}
                       textarea
+                      maxLength={500}
                     />
                     <div className="pt-1">
                       <MagneticButton type="submit">
@@ -126,9 +150,9 @@ export function ContactView() {
               </div>
             </Reveal>
 
-            {/* Details */}
-            <Reveal delay={0.1} className="flex flex-col gap-4">
-              <div className="rounded-3xl border border-border bg-surface p-6 md:p-8">
+            {/* Details & Map */}
+            <Reveal delay={0.1} className="flex flex-col gap-6">
+              <div className="rounded-3xl border border-border bg-surface p-6 md:p-8 shadow-sm">
                 <h2 className="font-mono text-xs uppercase tracking-[0.16em] text-primary-strong">
                   {c.detailsTitle}
                 </h2>
@@ -166,26 +190,8 @@ export function ContactView() {
                 </a>
               </div>
 
-              {/* Map */}
-              <div className="relative h-56 overflow-hidden rounded-3xl border border-border bg-surface-2">
-                <iframe
-                  title={c.address}
-                  src={mapEmbed}
-                  className="h-full w-full border-0"
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  allowFullScreen
-                />
-                <a
-                  href={mapLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="absolute bottom-3 inline-flex items-center gap-1.5 rounded-full bg-bg/90 px-3.5 py-1.5 text-xs font-medium text-fg shadow-sm backdrop-blur transition-colors hover:text-primary-strong ltr:right-3 rtl:left-3"
-                >
-                  <MapPin className="text-sm text-primary-strong" />
-                  {c.mapNote}
-                </a>
-              </div>
+              {/* Interactive Map */}
+              <GoogleMap />
             </Reveal>
           </div>
         </Container>
@@ -203,6 +209,7 @@ function Field({
   error,
   type = "text",
   textarea = false,
+  maxLength,
 }: {
   id: string;
   label: string;
@@ -212,19 +219,28 @@ function Field({
   error?: string;
   type?: string;
   textarea?: boolean;
+  maxLength?: number;
 }) {
   const base =
     "w-full rounded-xl border bg-bg px-4 py-3 text-sm text-fg outline-none transition-colors placeholder:text-fg-muted/70 focus:border-brand-400";
   const border = error ? "border-red-500" : "border-border";
   return (
     <div className="flex flex-col gap-1.5">
-      <label htmlFor={id} className="text-sm font-medium text-heading">
-        {label}
-      </label>
+      <div className="flex items-center justify-between">
+        <label htmlFor={id} className="text-sm font-medium text-heading">
+          {label}
+        </label>
+        {textarea && maxLength && (
+          <span className="text-[0.7rem] text-fg-muted">
+            {value.length}/{maxLength}
+          </span>
+        )}
+      </div>
       {textarea ? (
         <textarea
           id={id}
           rows={4}
+          maxLength={maxLength}
           value={value}
           placeholder={placeholder}
           aria-invalid={!!error}

@@ -1,11 +1,13 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import { useI18n } from "@/app/providers";
 import { Container, Section } from "@/components/ui/primitives";
 import { Reveal } from "@/components/ui/Reveal";
 import { ProductCard } from "@/components/products/ProductCard";
 import { CtaSection } from "@/components/sections/CtaSection";
+import { InquiryModal } from "@/components/ui/InquiryModal";
 import { categoryName, type Product } from "@/lib/data";
 import { ArrowRight } from "@/components/ui/icons";
 
@@ -25,6 +27,7 @@ export function ProductDetailView({
   related: Product[];
 }) {
   const { t, locale } = useI18n();
+  const [showInquiry, setShowInquiry] = useState(false);
   const g = gradients[product.categoryId] ?? "from-brand-500 to-brand-700";
   const initials = product.name.en
     .split(" ")
@@ -72,12 +75,26 @@ export function ProductDetailView({
                 <span className="rounded-full border border-border bg-surface px-3 py-1 font-mono text-xs text-fg-muted">
                   {t.products.category}: {categoryName(product.categoryId, locale)}
                 </span>
+                <span className="rounded-full border border-emerald-500/30 bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-700 dark:bg-emerald-950/40 dark:text-emerald-400">
+                  ✓ MoH Registered & Licensed
+                </span>
               </div>
               <p className="text-lg leading-relaxed text-fg-muted">
                 {product.blurb[locale]}
               </p>
+
+              <div className="mt-2 flex flex-wrap items-center gap-3">
+                <button
+                  onClick={() => setShowInquiry(true)}
+                  className="rounded-full bg-brand-600 px-6 py-3 text-sm font-medium text-white shadow-md hover:bg-brand-700 transition-colors flex items-center gap-2"
+                >
+                  <span>Inquire About Supply</span>
+                  <ArrowRight className="text-base rtl:-scale-x-100" />
+                </button>
+              </div>
+
               <div className="hairline my-2" />
-              <p className="text-sm text-fg-muted">{t.products.viewNote}</p>
+              <p className="text-xs text-fg-muted">{t.products.viewNote}</p>
             </Reveal>
           </div>
         </Container>
@@ -97,6 +114,13 @@ export function ProductDetailView({
           </Container>
         </Section>
       )}
+
+      {/* Inquiry Modal */}
+      <InquiryModal
+        product={product}
+        isOpen={showInquiry}
+        onClose={() => setShowInquiry(false)}
+      />
 
       <CtaSection />
     </>

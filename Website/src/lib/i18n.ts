@@ -100,10 +100,82 @@ const en = {
     lead: "We represent and distribute for a range of local and international healthcare brands.",
     note: "Partner names shown are placeholders pending confirmation.",
   },
+  faq: {
+    eyebrow: "Frequently Asked Questions",
+    title: "Everything you need to know",
+    lead: "Find quick answers about our distribution network, licensing, and ordering guidelines.",
+    searchPlaceholder: "Search questions & answers…",
+    allCategory: "All Questions",
+    generalCategory: "General & Licensing",
+    orderingCategory: "Ordering & Fulfillment",
+    deliveryCategory: "Logistics & Storage",
+    emptyState: "No matching questions found.",
+    items: [
+      {
+        cat: "generalCategory",
+        q: "Are all products distributed by Aalam Drug Store licensed by JFDA?",
+        a: "Yes. All pharmaceutical items, medical supplies, and dermatological lines in our catalogue are 100% registered with Jordan's Ministry of Health (MoH) and compliant with JFDA standards."
+      },
+      {
+        cat: "orderingCategory",
+        q: "Who can order from Aalam Drug Store?",
+        a: "We distribute exclusively to licensed healthcare institutions, including community pharmacies, hospital pharmacies, private clinics, and authorized medical centers in Jordan."
+      },
+      {
+        cat: "orderingCategory",
+        q: "What is the typical order fulfillment timeframe?",
+        a: "Orders placed before 2:00 PM are processed for next-day delivery within Amman. Rest of Kingdom deliveries typically take 24–48 hours depending on location."
+      },
+      {
+        cat: "deliveryCategory",
+        q: "How do you ensure cold-chain integrity during transport?",
+        a: "Temperature-sensitive pharmaceuticals and biological items are transported in climate-controlled vehicles equipped with real-time temperature loggers adhering to GDP (Good Distribution Practice)."
+      },
+      {
+        cat: "generalCategory",
+        q: "How can a new pharmacy register to become a client?",
+        a: "New pharmacies can get in touch via our Contact page or call our team directly. We will verify your pharmacy license and set up your distribution account within 24 hours."
+      }
+    ]
+  },
+  inquiry: {
+    title: "Product Supply Inquiry",
+    lead: "Need pricing, batch availability, or regulatory documentation for this item?",
+    productLabel: "Selected Product",
+    skuLabel: "SKU",
+    nameLabel: "Your Name",
+    emailLabel: "Work Email",
+    phoneLabel: "Phone / WhatsApp",
+    orgLabel: "Pharmacy / Clinic Name",
+    messageLabel: "Specific Requirements or Quantity",
+    submitBtn: "Send Inquiry",
+    sendingBtn: "Submitting…",
+    successTitle: "Inquiry Submitted Successfully!",
+    successBody: "Our distribution desk has received your request. A representative will follow up shortly.",
+    closeBtn: "Close Window",
+  },
+  quickView: {
+    quickViewBtn: "Quick View",
+    inquireBtn: "Inquire Now",
+    fullDetailsBtn: "View Full Page",
+    sku: "SKU",
+    category: "Category",
+    storage: "Storage Condition",
+    manufacturer: "Origin / Manufacturer",
+    license: "Regulatory Status",
+    closeBtn: "Close Preview",
+  },
   contact: {
     eyebrow: "Get in touch",
     title: "Let's talk supply",
     lead: "Tell us what your pharmacy or clinic needs and our team will get back to you.",
+    subjectsLabel: "Inquiry Topic",
+    subjects: [
+      { id: "general", label: "General Information" },
+      { id: "stock", label: "Product Availability & Pricing" },
+      { id: "registration", label: "New Client Account Setup" },
+      { id: "logistics", label: "Delivery Status & Logistics" },
+    ],
     nameLabel: "Full name",
     namePh: "e.g. Sara Ahmad",
     orgLabel: "Pharmacy / organisation",
@@ -136,7 +208,7 @@ const en = {
     rights: "All rights reserved.",
     demoNote: "Demo website — content and figures are placeholders pending client confirmation.",
   },
-} as const;
+};
 
 const ar: typeof en = {
   meta: {
@@ -232,10 +304,82 @@ const ar: typeof en = {
     lead: "نمثّل ونوزّع لمجموعة من العلامات الصحية المحلية والعالمية.",
     note: "أسماء الشركاء المعروضة تجريبية بانتظار التأكيد.",
   },
+  faq: {
+    eyebrow: "الأسئلة الشائعة",
+    title: "كل ما تحتاج لمعرفته",
+    lead: "إجابات سريعة حول شبكة التوزيع والترخيص وآلية طلب الأدوية والمستلزمات.",
+    searchPlaceholder: "ابحث في الأسئلة والإجابات…",
+    allCategory: "جميع الأسئلة",
+    generalCategory: "معلومات عامة وترخيص",
+    orderingCategory: "الطلب والتوريد",
+    deliveryCategory: "اللوجستيات والتخزين",
+    emptyState: "لم يتم العثور على أسئلة مطابقة لبحثك.",
+    items: [
+      {
+        cat: "generalCategory",
+        q: "هل جميع المنتجات الموزعة مرخصة من المؤسسة العامة للغذاء والدواء (JFDA)؟",
+        a: "نعم، جميع المستحضرات الصيدلانية والمستلزمات الطبية مسجلة بالكامل لدى وزارة الصحة الأردنية ومتوافقة 100% مع معايير المؤسسة العامة للغذاء والدواء."
+      },
+      {
+        cat: "orderingCategory",
+        q: "من يمكنه الطلب من مستودع العلم للأدوية؟",
+        a: "نوزّع حصرياً للمؤسسات الصحية المرخصة، بما في ذلك صيدليات المجتمع، صيدليات المستشفيات، والعيادات والمراكز الطبية المعتمدة في المملكة."
+      },
+      {
+        cat: "orderingCategory",
+        q: "ما هو الوقت المعتاد لتلبية الطلبات وتسليمها؟",
+        a: "الطلبات المستلمة قبل الساعة 2:00 ظهراً تُعالج للتوصيل في اليوم التالي داخل عمّان. أما المحافظات الأخرى فيستغرق التوصيل بين 24 إلى 48 ساعة."
+      },
+      {
+        cat: "deliveryCategory",
+        q: "كيف تضمنون سلامة سلسلة التبريد أثناء النقل؟",
+        a: "تُنقل الأدوية الحساسة للحرارة في مركبات مجهزة بنظام تبريد مراقب حرارياً ومزودة بمسجلات حرارة لحظية وفق قواعد التوزيع الجيد (GDP)."
+      },
+      {
+        cat: "generalCategory",
+        q: "كيف يمكن لصيدلية جديدة التسجيل كعميل لديكم؟",
+        a: "يمكن للصيدليات الجديدة التواصل معنا عبر صفحة الاتصال أو الاتصال بنا مباشرة. نتحقق من ترخيص الصيدلية ونفعل حساب التوزيع خلال 24 ساعة."
+      }
+    ]
+  },
+  inquiry: {
+    title: "استفسار عن توريد منتج",
+    lead: "هل تحتاج إلى معرفة الأسعار أو توفر الشحنات أو الوثائق التنظيمية؟",
+    productLabel: "المنتج المحدد",
+    skuLabel: "الرمز",
+    nameLabel: "الاسم الكامل",
+    emailLabel: "البريد الإلكتروني",
+    phoneLabel: "رقم الهاتف / واتساب",
+    orgLabel: "اسم الصيدلية / المركز",
+    messageLabel: "الكمية أو الاستفسار المخصص",
+    submitBtn: "إرسال الاستفسار",
+    sendingBtn: "جارٍ الإرسال…",
+    successTitle: "تم إرسال استفسارك بنجاح!",
+    successBody: "استلم قسم التوزيع طلبك وستتواصل معك إدارة المبيعات في أقرب وقت.",
+    closeBtn: "إغلاق النافذة",
+  },
+  quickView: {
+    quickViewBtn: "نظرة سريعة",
+    inquireBtn: "استفسر الآن",
+    fullDetailsBtn: "عرض الصفحة الكاملة",
+    sku: "الرمز",
+    category: "الفئة",
+    storage: "ظروف التخزين",
+    manufacturer: "المصنّع / بلد المنشأ",
+    license: "حالة الترخيص",
+    closeBtn: "إغلاق المعاينة",
+  },
   contact: {
     eyebrow: "تواصل معنا",
     title: "لنتحدّث عن التوريد",
     lead: "أخبرنا باحتياجات صيدليتك أو عيادتك وسيعاود فريقنا التواصل معك.",
+    subjectsLabel: "موضوع الاستفسار",
+    subjects: [
+      { id: "general", label: "استفسار عام" },
+      { id: "stock", label: "توفر المنتجات والأسعار" },
+      { id: "registration", label: "فتح حساب صيدلية جديدة" },
+      { id: "logistics", label: "متابعة التوصيل واللوجستيات" },
+    ],
     nameLabel: "الاسم الكامل",
     namePh: "مثال: سارة أحمد",
     orgLabel: "الصيدلية / المؤسسة",

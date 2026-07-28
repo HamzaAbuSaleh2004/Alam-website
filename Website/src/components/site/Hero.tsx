@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useReducedMotion } from "motion/react";
+import { motion, useReducedMotion, Variants } from "motion/react";
 import { useI18n } from "@/app/providers";
 import { HeroVideo } from "@/components/site/HeroVideo";
 import { PulseLine } from "@/components/brand/PulseLine";
@@ -8,13 +8,13 @@ import { Aurora } from "@/components/ui/Aurora";
 import { MagneticButton } from "@/components/ui/MagneticButton";
 import { ArrowRight, Check } from "@/components/ui/icons";
 
-const container = {
+const container: Variants = {
   hidden: {},
   show: { transition: { staggerChildren: 0.12, delayChildren: 0.15 } },
 };
-const item = {
+const item: Variants = {
   hidden: { opacity: 0, y: 18 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
 };
 
 export function Hero() {
@@ -32,7 +32,7 @@ export function Hero() {
       <motion.div
         initial={reduce ? { opacity: 1 } : { opacity: 0, y: 12, scale: 0.98 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
-        transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+        transition={{ duration: 0.7, ease: "easeOut" }}
         className="mb-10 flex w-full justify-center"
       >
         <HeroVideo />

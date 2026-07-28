@@ -30,13 +30,6 @@ export function PartnersStrip() {
               {t.partners.title}
             </h2>
           </div>
-          <Link
-            href="/partners"
-            className="inline-flex items-center gap-2 text-sm font-medium text-primary-strong transition-colors hover:text-brand-700"
-          >
-            {t.nav.partners}
-            <ArrowRight className="text-base rtl:-scale-x-100" />
-          </Link>
         </div>
       </Container>
       <Marquee>

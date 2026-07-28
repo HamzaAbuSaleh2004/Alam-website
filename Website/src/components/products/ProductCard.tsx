@@ -13,7 +13,13 @@ const gradients: Record<string, string> = {
   baby: "from-brand-300 to-lime-500",
 };
 
-export function ProductCard({ product }: { product: Product }) {
+interface ProductCardProps {
+  product: Product;
+  onQuickView?: (product: Product) => void;
+  onInquire?: (product: Product) => void;
+}
+
+export function ProductCard({ product, onQuickView, onInquire }: ProductCardProps) {
   const { locale } = useI18n();
   const g = gradients[product.categoryId] ?? "from-brand-500 to-brand-700";
   const initials = product.name.en
@@ -23,30 +29,62 @@ export function ProductCard({ product }: { product: Product }) {
     .join("");
 
   return (
-    <Link href={`/products/${product.slug}`} className="block h-full">
-      <SpotlightCard className="h-full">
+    <SpotlightCard className="h-full flex flex-col justify-between group">
+      <Link href={`/products/${product.slug}`} className="block">
         <div
           className={`relative flex h-36 items-center justify-center bg-linear-to-br ${g}`}
         >
-          <span className="font-mono text-3xl font-semibold text-white/95">
+          <span className="font-mono text-3xl font-semibold text-white/95 transition-transform duration-300 group-hover:scale-110">
             {initials}
           </span>
           <span className="absolute bottom-2 font-mono text-[0.6rem] text-white/80 ltr:right-3 rtl:left-3">
             {product.sku}
           </span>
         </div>
-        <div className="p-5">
+        <div className="p-5 pb-3">
           <div className="font-mono text-[0.65rem] uppercase tracking-[0.12em] text-primary-strong">
             {categoryName(product.categoryId, locale)}
           </div>
-          <h3 className="mt-1.5 text-base font-semibold text-heading">
+          <h3 className="mt-1.5 text-base font-semibold text-heading group-hover:text-brand-600 transition-colors">
             {product.name[locale]}
           </h3>
           <p className="mt-2 line-clamp-2 text-sm text-fg-muted">
             {product.blurb[locale]}
           </p>
         </div>
-      </SpotlightCard>
-    </Link>
+      </Link>
+
+      <div className="px-5 pb-5 pt-1 flex items-center justify-between gap-2 border-t border-border/40 mt-auto">
+        {onQuickView && (
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              onQuickView(product);
+            }}
+            className="rounded-full border border-border px-3 py-1.5 text-xs font-medium text-fg-muted hover:border-brand-500 hover:text-heading transition-all"
+          >
+            Quick View
+          </button>
+        )}
+        {onInquire ? (
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              onInquire(product);
+            }}
+            className="rounded-full bg-brand-600 px-3.5 py-1.5 text-xs font-medium text-white shadow-xs hover:bg-brand-700 transition-colors"
+          >
+            Inquire
+          </button>
+        ) : (
+          <Link
+            href={`/products/${product.slug}`}
+            className="text-xs font-medium text-primary-strong hover:underline"
+          >
+            Details →
+          </Link>
+        )}
+      </div>
+    </SpotlightCard>
   );
 }
