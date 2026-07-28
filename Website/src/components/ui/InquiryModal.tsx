@@ -37,7 +37,7 @@ export function InquiryModal({ product, isOpen, onClose }: InquiryModalProps) {
         body: JSON.stringify({
           access_key: "YOUR_WEB3FORMS_ACCESS_KEY",
           to_email: "d.s.alalam@gmail.com",
-          from_name: "Aalam Drug Store Website",
+          from_name: "Alalam Drug Store Website",
           subject: `[Product Supply Inquiry] ${product.name[locale]} (${product.sku}) from ${name}`,
           product_name: product.name[locale],
           sku: product.sku,

@@ -30,7 +30,7 @@ export function AboutView() {
                     <span className="inline-block rounded-full bg-brand-50 px-3.5 py-1 font-mono text-xs font-semibold text-brand-600 dark:bg-brand-950/60 dark:text-primary-strong">
                       {c.badge}
                     </span>
-                    <span className="font-mono text-xs text-fg-muted">Aalam Standard</span>
+                    <span className="font-mono text-xs text-fg-muted">Alalam Standard</span>
                   </div>
                   <h3 className="mt-6 font-mono text-xs uppercase tracking-[0.16em] text-primary-strong">
                     {c.label}

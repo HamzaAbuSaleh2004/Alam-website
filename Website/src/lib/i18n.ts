@@ -12,7 +12,7 @@ const en = {
     switchTo: "العربية",
   },
   brand: {
-    name: "Aalam Drug Store",
+    name: "Alalam Drug Store",
     tagline: "Pharmaceutical distribution you can rely on",
   },
   nav: {
@@ -26,7 +26,7 @@ const en = {
   hero: {
     eyebrow: "Licensed pharmaceutical distributor · Amman, Jordan",
     title: "Medicine, delivered with care.",
-    lead: "Aalam Drug Store supplies pharmacies and clinics across Jordan with dependable, fully-licensed pharmaceutical distribution — the right products, handled properly, on time.",
+    lead: "Alalam Drug Store supplies pharmacies and clinics across Jordan with dependable, fully-licensed pharmaceutical distribution — the right products, handled properly, on time.",
     primary: "Talk to our team",
     secondary: "Explore our range",
     scroll: "Scroll to explore",
@@ -64,7 +64,7 @@ const en = {
   about: {
     eyebrow: "Who we are",
     title: "A distributor pharmacies trust",
-    body: "Based in Rabieh, Amman, Aalam Drug Store is a licensed pharmaceutical distributor serving the Jordanian healthcare market. We connect pharmacies and clinics with the medicines and medical products they depend on — handled to standard and delivered dependably.",
+    body: "Based in Rabieh, Amman, Alalam Drug Store is a licensed pharmaceutical distributor serving the Jordanian healthcare market. We connect pharmacies and clinics with the medicines and medical products they depend on — handled to standard and delivered dependably.",
     missionTitle: "Our mission",
     mission: "To keep Jordan's pharmacies reliably stocked with quality, properly-handled pharmaceutical products.",
     visionTitle: "Our vision",
@@ -76,7 +76,7 @@ const en = {
       { t: "Reliability", d: "Consistent availability and delivery our partners can plan around." },
     ],
     complianceTitle: "Licensing & compliance",
-    compliance: "Aalam Drug Store is registered with Jordan's Ministry of Health (MoH) and operates in line with Jordan Food and Drug Administration (JFDA) requirements.",
+    compliance: "Alalam Drug Store is registered with Jordan's Ministry of Health (MoH) and operates in line with Jordan Food and Drug Administration (JFDA) requirements.",
   },
   products: {
     eyebrow: "Our range",
@@ -112,12 +112,12 @@ const en = {
     items: [
       {
         cat: "generalCategory",
-        q: "Are all products distributed by Aalam Drug Store licensed by JFDA?",
+        q: "Are all products distributed by Alalam Drug Store licensed by JFDA?",
         a: "Yes. All pharmaceutical items, medical supplies, and dermatological lines in our catalogue are 100% registered with Jordan's Ministry of Health (MoH) and compliant with JFDA standards."
       },
       {
         cat: "orderingCategory",
-        q: "Who can order from Aalam Drug Store?",
+        q: "Who can order from Alalam Drug Store?",
         a: "We distribute exclusively to licensed healthcare institutions, including community pharmacies, hospital pharmacies, private clinics, and authorized medical centers in Jordan."
       },
       {
@@ -186,7 +186,7 @@ const en = {
     submit: "Send message",
     sending: "Sending…",
     sentTitle: "Thank you — message received",
-    sentBody: "This is a demo form, so nothing was actually sent. We'll wire it to Aalam's inbox before launch.",
+    sentBody: "This is a demo form, so nothing was actually sent. We'll wire it to Alalam's inbox before launch.",
     reset: "Send another",
     errorRequired: "Please fill in this field.",
     errorEmail: "Please enter a valid email address.",

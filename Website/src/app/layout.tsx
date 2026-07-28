@@ -34,12 +34,12 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
     default:
-      "Aalam Drug Store | مستودع العلم للأدوية — Pharmaceutical Distributor in Amman, Jordan",
-    template: "%s · Aalam Drug Store | مستودع العلم للأدوية",
+      "Alalam Drug Store | مستودع العلم للأدوية — Pharmaceutical Distributor in Amman, Jordan",
+    template: "%s · Alalam Drug Store | مستودع العلم للأدوية",
   },
   description:
-    "Aalam Drug Store (Al-Alam · Alam Pharma · مستودع العلم للأدوية) is a licensed pharmaceutical distributor in Amman, Jordan, supplying pharmacies and clinics with dependable, properly-handled medicine and medical supplies.",
-  applicationName: "Aalam Drug Store",
+    "Alalam Drug Store (Al-Alam · Aalam · Alam Pharma · مستودع العلم للأدوية) is a licensed pharmaceutical distributor in Amman, Jordan, supplying pharmacies and clinics with dependable, properly-handled medicine and medical supplies.",
+  applicationName: "Alalam Drug Store",
   icons: {
     icon: "/brand/logo-mark.png",
     shortcut: "/brand/logo-mark.png",
@@ -49,9 +49,11 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   keywords: [
-    "Aalam Drug Store",
+    "Alalam Drug Store",
     "Al-Alam Drug Store",
+    "Aalam Drug Store",
     "Alam Pharma",
+    "Alalam pharma",
     "Aalam pharma",
     "alalam",
     "مستودع العلم",
@@ -63,19 +65,19 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title:
-      "Aalam Drug Store | مستودع العلم للأدوية — Pharmaceutical Distributor in Amman",
+      "Alalam Drug Store | مستودع العلم للأدوية — Pharmaceutical Distributor in Amman",
     description:
       "Licensed pharmaceutical distribution serving pharmacies and clinics across Jordan.",
-    siteName: "Aalam Drug Store",
+    siteName: "Alalam Drug Store",
     url: SITE_URL,
     type: "website",
     locale: "en_JO",
     alternateLocale: "ar_JO",
-    images: [{ url: "/brand/logo-mark.png", width: 512, height: 415, alt: "Aalam Drug Store" }],
+    images: [{ url: "/brand/logo-mark.png", width: 512, height: 415, alt: "Alalam Drug Store" }],
   },
   twitter: {
     card: "summary",
-    title: "Aalam Drug Store | مستودع العلم للأدوية",
+    title: "Alalam Drug Store | مستودع العلم للأدوية",
     description:
       "Licensed pharmaceutical distributor in Amman, Jordan — pharmacies & clinics supply.",
     images: ["/brand/logo-mark.png"],
@@ -95,11 +97,12 @@ const noFlash = `(function(){try{var l=localStorage.getItem('alalam-locale');var
 const orgJsonLd = {
   "@context": "https://schema.org",
   "@type": ["Organization", "MedicalOrganization"],
-  name: "Aalam Drug Store",
+  name: "Alalam Drug Store",
   alternateName: [
     "مستودع العلم للأدوية",
     "مستودع العلم",
     "Al-Alam Drug Store",
+    "Aalam Drug Store",
     "Alam Pharma",
   ],
   description:

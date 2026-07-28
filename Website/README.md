@@ -1,6 +1,6 @@
-# Aalam Drug Store — Website (v1)
+# Alalam Drug Store — Website (v1)
 
-Interactive, bilingual (EN/AR + RTL) marketing site for Aalam Drug Store, built to be
+Interactive, bilingual (EN/AR + RTL) marketing site for Alalam Drug Store, built to be
 a **credibility & publicity** site with a secondary, informational product catalogue.
 
 ## Run locally
@@ -62,5 +62,5 @@ any of these — e.g. their Aurora, LogoLoop, CountUp, ShinyText.
 - **Products** (`src/lib/data.ts`): demo catalogue; replace via the planned admin Excel import.
 - **Partners** (`src/lib/data.ts`): generic placeholder names, not real brands.
 - **Stats** (`src/lib/i18n.ts`): representative placeholder figures — confirm with management.
-- **Contact form**: demo only (no backend) — wire to Aalam's inbox before launch.
+- **Contact form**: demo only (no backend) — wire to Alalam's inbox before launch.
 - **Company details**: verify against `../docs/COMPANY_PROFILE.md`.

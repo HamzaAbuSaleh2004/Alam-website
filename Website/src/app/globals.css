@@ -4,7 +4,7 @@
 @custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 
 /* ============================================================
-   Aalam Drug Store — theme-aware semantic tokens
+   Alalam Drug Store — theme-aware semantic tokens
    Brand: Medical Cyan #008DD2 · Vibrant Lime #A5D027
    ============================================================ */
 :root {

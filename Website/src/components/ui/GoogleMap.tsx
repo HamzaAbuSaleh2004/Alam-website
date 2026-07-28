@@ -20,7 +20,7 @@ export function GoogleMap() {
         <div className="flex items-center gap-2">
           <span className="h-2.5 w-2.5 rounded-full bg-emerald-500 animate-pulse" />
           <span className="text-xs font-medium text-heading">
-            Aalam Headquarters · Amman, Jordan
+            Alalam Headquarters · Amman, Jordan
           </span>
         </div>
         <div className="flex items-center gap-1.5 rounded-full border border-border bg-surface p-1 text-[0.7rem] font-medium">
@@ -50,7 +50,7 @@ export function GoogleMap() {
       {/* Embedded Iframe Map */}
       <div className="relative h-64 w-full md:h-80">
         <iframe
-          title="Aalam Drug Store Location"
+          title="Alalam Drug Store Location"
           src={mapSrc}
           className="h-full w-full border-0 grayscale-[20%] contrast-[105%] transition-all dark:invert-[90%] dark:hue-rotate-180"
           loading="lazy"

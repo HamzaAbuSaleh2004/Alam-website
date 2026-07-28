@@ -1,7 +1,7 @@
 import type { CSSProperties } from "react";
 
 /**
- * Aalam brand mark — PLACEHOLDER.
+ * Alalam brand mark — PLACEHOLDER.
  * A "pulse ring": a cyan ring with a lime heartbeat spike, echoing the
  * medical identity. Swap this SVG for the real vector logo when supplied.
  *
@@ -37,7 +37,7 @@ export function AnimatedLogo({
       viewBox="0 0 120 120"
       fill="none"
       role="img"
-      aria-label="Aalam Drug Store"
+      aria-label="Alalam Drug Store"
       className={className}
     >
       <circle

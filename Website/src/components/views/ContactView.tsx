@@ -49,7 +49,7 @@ export function ContactView() {
         body: JSON.stringify({
           access_key: "YOUR_WEB3FORMS_ACCESS_KEY",
           to_email: "d.s.alalam@gmail.com",
-          from_name: "Aalam Drug Store Website",
+          from_name: "Alalam Drug Store Website",
           subject: `[Website Inquiry] ${c.subjects?.find((s) => s.id === subject)?.label || "General"} from ${form.name}`,
           name: form.name,
           email: form.email,

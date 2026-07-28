@@ -4,7 +4,7 @@ import { ContactView } from "@/components/views/ContactView";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Get in touch with Aalam Drug Store in Rabieh, Amman — phone, WhatsApp, address and hours.",
+    "Get in touch with Alalam Drug Store in Rabieh, Amman — phone, WhatsApp, address and hours.",
 };
 
 export default function ContactPage() {

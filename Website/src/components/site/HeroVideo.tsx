@@ -43,7 +43,7 @@ export function HeroVideo() {
         // eslint-disable-next-line @next/next/no-img-element
         <img
           src="/hero/logo-poster-alpha.png"
-          alt="Aalam Drug Store — مستودع العلم للأدوية"
+          alt="Alalam Drug Store — مستودع العلم للأدوية"
           className="pointer-events-none block w-full select-none"
           draggable={false}
         />
@@ -56,7 +56,7 @@ export function HeroVideo() {
           playsInline
           preload="auto"
           poster="/hero/logo-poster-alpha.png"
-          aria-label="Aalam Drug Store animated logo"
+          aria-label="Alalam Drug Store animated logo"
           tabIndex={-1}
           disablePictureInPicture
           disableRemotePlayback
