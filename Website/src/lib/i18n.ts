@@ -42,13 +42,12 @@ const en = {
     ],
   },
   stats: {
-    // PLACEHOLDER figures — replace with verified numbers from management.
     eyebrow: "By the numbers",
     items: [
-      { value: 500, suffix: "+", label: "Products distributed" },
-      { value: 300, suffix: "+", label: "Pharmacies served" },
-      { value: 12, suffix: "+", label: "Years of experience" },
-      { value: 48, suffix: "h", label: "Typical fulfilment" },
+      { value: 140, suffix: "k+", label: "Products distributed" },
+      { value: 1, suffix: "k+", label: "Pharmacies served" },
+      { value: 5, suffix: "+", label: "Years of experience" },
+      { value: 24, suffix: "h", label: "Typical fulfilment" },
     ],
   },
   services: {
@@ -249,10 +248,10 @@ const ar: typeof en = {
   stats: {
     eyebrow: "بالأرقام",
     items: [
-      { value: 500, suffix: "+", label: "منتج موزّع" },
-      { value: 300, suffix: "+", label: "صيدلية نخدمها" },
-      { value: 12, suffix: "+", label: "عاماً من الخبرة" },
-      { value: 48, suffix: "س", label: "زمن التوريد المعتاد" },
+      { value: 140, suffix: " ألف+", label: "منتج موزّع" },
+      { value: 1, suffix: " ألف+", label: "صيدلية نخدمها" },
+      { value: 5, suffix: "+", label: "سنوات من الخبرة" },
+      { value: 24, suffix: "س", label: "زمن التوريد المعتاد" },
     ],
   },
   services: {

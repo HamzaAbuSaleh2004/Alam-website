@@ -24,13 +24,37 @@ export function InquiryModal({ product, isOpen, onClose }: InquiryModalProps) {
 
   if (!isOpen || !product) return null;
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitting(true);
-    setTimeout(() => {
+    try {
+      await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: "YOUR_WEB3FORMS_ACCESS_KEY",
+          to_email: "d.s.alalam@gmail.com",
+          from_name: "Aalam Drug Store Website",
+          subject: `[Product Supply Inquiry] ${product.name[locale]} (${product.sku}) from ${name}`,
+          product_name: product.name[locale],
+          sku: product.sku,
+          category: categoryName(product.categoryId, locale),
+          name,
+          email,
+          phone,
+          organisation: org,
+          message,
+        }),
+      });
+    } catch (err) {
+      console.error("Submission error:", err);
+    } finally {
       setSubmitting(false);
       setSent(true);
-    }, 800);
+    }
   };
 
   const handleReset = () => {

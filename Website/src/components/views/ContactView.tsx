@@ -29,7 +29,7 @@ export function ContactView() {
     if (errors[key as keyof Errors]) setErrors((e) => ({ ...e, [key]: undefined }));
   }
 
-  function submit(e: React.FormEvent) {
+  async function submit(e: React.FormEvent) {
     e.preventDefault();
     const next: Errors = {};
     if (!form.name.trim()) next.name = c.errorRequired;
@@ -39,7 +39,30 @@ export function ContactView() {
     if (Object.keys(next).length > 0) return;
 
     setStatus("sending");
-    window.setTimeout(() => setStatus("sent"), 850);
+    try {
+      await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: "YOUR_WEB3FORMS_ACCESS_KEY",
+          to_email: "d.s.alalam@gmail.com",
+          from_name: "Aalam Drug Store Website",
+          subject: `[Website Inquiry] ${c.subjects?.find((s) => s.id === subject)?.label || "General"} from ${form.name}`,
+          name: form.name,
+          email: form.email,
+          organisation: form.org,
+          topic: subject,
+          message: form.message,
+        }),
+      });
+    } catch (err) {
+      console.error("Submission error:", err);
+    } finally {
+      setStatus("sent");
+    }
   }
 
   function reset() {
