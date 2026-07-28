@@ -50,16 +50,10 @@ export function Providers({ children }: { children: ReactNode }) {
   useEffect(() => {
     const savedLocale = localStorage.getItem(LOCALE_KEY) as Locale | null;
     const savedTheme = localStorage.getItem(THEME_KEY) as Theme | null;
-    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-
     const initialLocale: Locale =
       savedLocale === "ar" || savedLocale === "en" ? savedLocale : defaultLocale;
     const initialTheme: Theme =
-      savedTheme === "dark" || savedTheme === "light"
-        ? savedTheme
-        : prefersDark
-          ? "dark"
-          : "light";
+      savedTheme === "dark" || savedTheme === "light" ? savedTheme : "light";
 
     setLocaleState(initialLocale);
     setThemeState(initialTheme);

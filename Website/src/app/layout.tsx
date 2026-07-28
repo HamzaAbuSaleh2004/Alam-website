@@ -89,7 +89,7 @@ export const viewport: Viewport = {
   ],
 };
 
-const noFlash = `(function(){try{var l=localStorage.getItem('alalam-locale');var t=localStorage.getItem('alalam-theme');var d=window.matchMedia('(prefers-color-scheme: dark)').matches;var theme=(t==='dark'||t==='light')?t:(d?'dark':'light');var locale=(l==='ar'||l==='en')?l:'en';var r=document.documentElement;r.setAttribute('data-theme',theme);r.lang=locale;r.dir=(locale==='ar')?'rtl':'ltr';}catch(e){}})();`;
+const noFlash = `(function(){try{var l=localStorage.getItem('alalam-locale');var t=localStorage.getItem('alalam-theme');var theme=(t==='dark'||t==='light')?t:'light';var locale=(l==='ar'||l==='en')?l:'en';var r=document.documentElement;r.setAttribute('data-theme',theme);r.lang=locale;r.dir=(locale==='ar')?'rtl':'ltr';}catch(e){}})();`;
 
 // Machine-readable company facts for search engines and AI assistants (schema.org).
 const orgJsonLd = {
@@ -141,6 +141,7 @@ export default function RootLayout({
     <html
       lang="en"
       dir="ltr"
+      data-theme="light"
       suppressHydrationWarning
       className={`${sans.variable} ${arabic.variable} ${mono.variable}`}
     >
