@@ -167,10 +167,9 @@ export function ContactView() {
                         {href ? (
                           <a
                             href={href}
-                            dir="ltr"
                             className="text-sm font-medium text-fg transition-colors hover:text-primary-strong"
                           >
-                            {value}
+                            <span dir="ltr">{value}</span>
                           </a>
                         ) : (
                           <span className="text-sm font-medium text-fg">{value}</span>

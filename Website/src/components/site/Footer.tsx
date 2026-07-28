@@ -58,11 +58,10 @@ export function Footer() {
             </span>
             <a
               href={`tel:${t.contact.phone.replace(/\s/g, "")}`}
-              dir="ltr"
               className="flex items-center gap-2.5 text-sm text-fg transition-colors hover:text-primary-strong"
             >
               <Phone className="text-base text-primary-strong" />
-              {t.contact.phone}
+              <span dir="ltr">{t.contact.phone}</span>
             </a>
             <span className="flex items-center gap-2.5 text-sm text-fg">
               <Clock className="text-base text-primary-strong" />
@@ -75,7 +74,6 @@ export function Footer() {
           <p>
             © {year} {t.brand.name}. {t.footer.rights}
           </p>
-          <p className="opacity-80">{t.footer.demoNote}</p>
         </div>
       </div>
     </footer>
